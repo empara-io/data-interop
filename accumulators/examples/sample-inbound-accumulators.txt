@@ -1,0 +1,45 @@
+subscriberId	memberId	personCode	lastName	firstName	transactionDate	type	coverageType	applicability	value	groupPlanId	memberGroupId
+0604100001	060410000100	00	Prescott	Diane	2024-02-26	individualMaxPay	medical		1000.00	6000	6042
+0604100001	060410000100	00	Prescott	Diane	2024-02-26	individualDeductible	medical	inNetwork	500.00	6000	6042
+0604100001	060410000101	01	Prescott	James	2024-02-26	individualMaxPay	medical		1000.00	6000	6042
+0604100001	060410000101	01	Prescott	James	2024-02-26	individualDeductible	medical	inNetwork	500.00	6000	6042
+0604100001	060410000102	02	Prescott	Tommy	2024-02-26	individualMaxPay	medical		1000.00	6000	6042
+0604100001	060410000102	02	Prescott	Tommy	2024-02-26	individualDeductible	medical	inNetwork	500.00	6000	6042
+0604100050	060410005000	00	Jump	Dan	2024-02-26	individualMaxPay	medical		2000.00	6000	6042
+0604100050	060410005000	00	Jump	Dan	2024-02-26	individualDeductible	medical	inNetwork	1000.00	6000	6042
+0604100050	060410005001	01	Jump	Susan	2024-02-26	individualMaxPay	medical		2000.00	6000	6042
+0604100050	060410005001	01	Jump	Susan	2024-02-26	individualDeductible	medical	inNetwork	1000.00	6000	6042
+0604100050	060410005002	02	Jump	Matt	2024-02-26	individualMaxPay	medical		2000.00	6000	6042
+0604100050	060410005002	02	Jump	Matt	2024-02-26	individualDeductible	medical	inNetwork	1000.00	6000	6042
+0604100050	060410005003	03	Jump	Nathan	2024-02-26	individualMaxPay	medical		2000.00	6000	6042
+0604100050	060410005003	03	Jump	Nathan	2024-02-26	individualDeductible	medical	inNetwork	1000.00	6000	6042
+0604100050	060410005004	04	Jump	Alexa	2024-02-26	individualMaxPay	medical		2000.00	6000	6042
+0604100050	060410005004	04	Jump	Alexa	2024-02-26	individualDeductible	medical	inNetwork	1000.00	6000	6042
+0604100001	060410000100	00	Prescott	Diane	2024-02-27	individualMaxPay	medical		1000.00	6000	6042
+0604100001	060410000100	00	Prescott	Diane	2024-02-27	individualDeductible	medical	inNetwork	500.00	6000	6042
+0604100001	060410000101	01	Prescott	James	2024-02-27	individualMaxPay	medical		1000.00	6000	6042
+0604100001	060410000101	01	Prescott	James	2024-02-27	individualDeductible	medical	inNetwork	500.00	6000	6042
+0604100001	060410000102	02	Prescott	Tommy	2024-02-27	individualMaxPay	medical		1000.00	6000	6042
+0604100001	060410000102	02	Prescott	Tommy	2024-02-27	individualDeductible	medical	inNetwork	500.00	6000	6042
+0604100050	060410005000	00	Jump	Dan	2024-02-27	individualMaxPay	medical		2100.00	6000	6042
+0604100050	060410005000	00	Jump	Dan	2024-02-27	individualDeductible	medical	inNetwork	1100.00	6000	6042
+0604100050	060410005001	01	Jump	Susan	2024-02-27	individualMaxPay	medical		2250.00	6000	6042
+0604100050	060410005001	01	Jump	Susan	2024-02-27	individualDeductible	medical	inNetwork	1500.00	6000	6042
+0604100050	060410005002	02	Jump	Matt	2024-02-27	individualMaxPay	medical		2000.00	6000	6042
+0604100050	060410005002	02	Jump	Matt	2024-02-27	individualDeductible	medical	inNetwork	1000.00	6000	6042
+0604100050	060410005003	03	Jump	Nathan	2024-02-27	individualMaxPay	medical		2000.00	6000	6042
+0604100050	060410005003	03	Jump	Nathan	2024-02-27	individualDeductible	medical	inNetwork	1000.00	6000	6042
+0604100050	060410005004	04	Jump	Alexa	2024-02-27	individualMaxPay	medical		2000.00	6000	6042
+0604100050	060410005004	04	Jump	Alexa	2024-02-27	individualDeductible	medical	inNetwork	1200.00	6000	6042
+0604100001	060410000100	00	Prescott	Diane	2024-02-28	individualMaxPay	medical		1000.00	6000	6042
+0604100001	060410000100	00	Prescott	Diane	2024-02-28	individualDeductible	medical	inNetwork	500.00	6000	6042
+0604100050	060410005000	00	Jump	Dan	2024-02-28	individualMaxPay	medical		2100.00	6000	6042
+0604100050	060410005000	00	Jump	Dan	2024-02-28	individualDeductible	medical	inNetwork	1100.00	6000	6042
+0604100050	060410005001	01	Jump	Susan	2024-02-28	individualMaxPay	medical		2250.00	6000	6042
+0604100050	060410005001	01	Jump	Susan	2024-02-28	individualDeductible	medical	inNetwork	1500.00	6000	6042
+0604100050	060410005002	02	Jump	Matt	2024-02-28	individualMaxPay	medical		2000.00	6000	6042
+0604100050	060410005002	02	Jump	Matt	2024-02-28	individualDeductible	medical	inNetwork	1000.00	6000	6042
+0604100050	060410005003	03	Jump	Nathan	2024-02-28	individualMaxPay	medical		2000.00	6000	6042
+0604100050	060410005003	03	Jump	Nathan	2024-02-28	individualDeductible	medical	inNetwork	1000.00	6000	6042
+0604100050	060410005004	04	Jump	Alexa	2024-02-28	individualMaxPay	medical		2000.00	6000	6042
+0604100050	060410005004	04	Jump	Alexa	2024-02-28	individualDeductible	medical	inNetwork	1200.00	6000	6042
