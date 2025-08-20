@@ -25,7 +25,7 @@ The accumulator file is used to communicate the amounts that have accrued toward
 
 Empara will provide the designated 'Accumulator ProviderCode' to be used in the file name during the implementation process. Files submitted by the provider must adhere to the following naming convention:
 
-`<Accumulator ProviderCode>_<MemberGroupId>_acum_YYYYMMDD.txt`
+`<Accumulator ProviderCode>_<MemberGroupId>_acum_YYYYMMDD.tsv`
 
 ## Transmission
 
@@ -38,12 +38,12 @@ SFTP Root Folder
 |- fromEmpara
 |- toEmpara
    |- accumulators
-      |- sample_group123_acum_20230101.txt
-      |- sample_group123_acum_20230102.txt
-      |- sample_group123_acum_20230103.txt
-      |- sample_group978_acum_20230101.txt
-      |- sample_group978_acum_20230102.txt
-      |- sample_group978_acum_20230103.txt
+      |- sample_group123_acum_20230101.tsv
+      |- sample_group123_acum_20230102.tsv
+      |- sample_group123_acum_20230103.tsv
+      |- sample_group978_acum_20230101.tsv
+      |- sample_group978_acum_20230102.tsv
+      |- sample_group978_acum_20230103.tsv
    |- claims
    |- eligibility
 ```
