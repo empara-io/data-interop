@@ -5,9 +5,10 @@ Transmission from Partner Organization to Empara
 
 ## Revision History
 
-| Version | Last Updated    |
-| --------| ----------------|
-| 1.0     | August 20, 2025 |
+| Version                                                                                                                           | Last Updated       |
+|-----------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| 1.1                                                                                                                               | September 24, 2025 |
+| [1.0](https://github.com/empara-io/data-interop/blob/inbound-claims-structured_v1.0/claims/docs/inbound-claim-spec-structured.md) | August 20, 2025    |
 
 ## Table of Contents
 
@@ -441,7 +442,7 @@ To enhance readability and reduce redundancy, some fields in the schema table ar
 | `header_paymentAdjustmentReasonCodeSystem`                       | `STRING`                | `COND`    | **MUST** be provided if `header_paymentAdjustmentReasonCode` is given. See: "[Code Systems](#code-systems)"                            |
 | `header_paymentAdjustmentReasonCodeDesc`                         | `STRING`                | `COND`    | **MUST** be provided if `header_paymentAdjustmentReasonCode` is given. See: "[Code Systems](#code-systems)"                            |
 | `header_paymentDate`                                             | `DATE`                  | `NO`      | Estimated or actual date the payment will be issued.                                                                                 |
-| `header_paymentAmount`                                           | `MONETARY`              | `NO`      | Benefits payable before any payment adjustment.                                                                                      |
+| `header_paymentAmount`                                           | `MONETARY`              | `NO`      | Amount payable after adjustment.                                                                                      |
 | `header_paymentIdentifier`                                       | `STRING`                | `NO`      | Business identifier for the payment                                                                                                  |
 | `item_note_1` - `4`                                              | `STRING`                | `NO`      | Note concerning adjudication. May be displayed to humans.                                                                            |
 | `item_networkCode`                                               | `STRING`                | `NO`      | Code indicating if the provider is in network. See: "[Code systems](#code-systems)"                                                    |
@@ -451,7 +452,6 @@ To enhance readability and reduce redundancy, some fields in the schema table ar
 | `item_reviewOutcomeReasonCode_1` - `3`                           | `STRING`                | `NO`      | Reason code for the review outcome.                                                                                                  |
 | `item_reviewOutcomeReasonCodeSystem_1` - `3`                     | `STRING`                | `COND`    | **MUST** be provided if `item_reviewOutcomeReasonCode_[k]` is given. See: "[Code Systems](#code-systems)"                              |
 | `item_reviewOutcomeReasonCodeDesc_1` - `3`                       | `STRING`                | `COND`    | **MUST** be provided if `item_reviewOutcomeReasonCode_[k]` is given. See: "[Code Systems](#code-systems)"                              |
-| `item_adjudicationDecision`                                      | `ENUM(Decision)`        | `COND`    | **MUST** be provided if `header_outcome` is `complete` or `partial`. See: "[Decision](#decision)"                                  |
 | `item_adjudicationSubmittedAmount`                               | `MONETARY`              | `COND`    | Total amount submitted for the line item. Required if claim processing is complete.                                                  |
 | `item_adjudicationCopayAmount`                                   | `MONETARY`              | `NO`      | Member copayment for the line item.                                                                                                  |
 | `item_adjudicationCopayReasonCode`                               | `STRING`                | `NO`      | Reason code for copay adjudication.                                                                                                  |
