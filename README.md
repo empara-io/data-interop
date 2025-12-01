@@ -18,6 +18,11 @@ This repository provides documentation and examples for exchanging data files wi
     - [Accumulator EDI Specifications](accumulators/docs/inbound-accumulator-spec.md)
   - [Examples](accumulators/examples)
     - [Example Accumulator File](accumulators/examples/sample-inbound-accumulators.txt)
+- [Reports](./report-packets/)
+  - [Documentation](./report-packets/docs/)
+    - [Report Packet Specification](/report-packets/docs/inbound-report-packet-spec.md)
+  - [Examples](./report-packets/examples/)
+    - [Example Report Packet File](/report-packets/examples/contoso_report_packets_20251120.json)
 
 ## Prerequisites
 

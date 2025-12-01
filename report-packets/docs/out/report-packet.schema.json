@@ -1,0 +1,87 @@
+{
+    "$id": "https://empara-io.github.io/data-interop/schemas/v1/report-packet-list.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+
+    "title": "ReportPacketList",
+    "description": "A list of report packets to create or update.",
+
+    "type": "array",
+    "items": {
+        "title": "ReportPacket",
+        "description": "Report Packet details.",
+
+        "type": "object",
+        "properties": {
+            "memberGroupId": {
+                "description": "Identifier of the member group the packet is for.",
+                "type": "string"
+            },
+            "title": {
+                "description": "The title of the report packet.",
+                "type": "string"
+            },
+            "description": {
+                "description": "A description of the report packet.",
+                "type": "string"
+            },
+            "period": {
+                "title": "Period",
+                "description": "The publishing period of the report packet.",
+                "type": "object",
+                "properties": {
+                    "start": {
+                        "description": "The start of the period.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "end": {
+                        "description": "The end of the period.",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "containsProtectedHealthInfo": {
+                "description": "Indicates the report packet contains PHI.",
+                "type": "boolean",
+                "default": false
+            },
+            "containsSensitiveFinancialInfo": {
+                "description": "Indicates the report packet contains sensitive financial information.",
+                "type": "boolean",
+                "default": false
+            },
+            "reports": {
+                "title": "ReportList",
+                "description": "The list of reports included in the packet.",
+                "type": "array",
+                "items": {
+                    "title": "Report",
+                    "type": "object",
+                    "properties": {
+                        "fileName": {
+                            "description": "The name of the file uploaded.",
+                            "type": "string"
+                        },
+                        "title": {
+                            "description": "The title of the report",
+                            "type": "string"
+                        },
+                        "description": {
+                            "description": "The description of the report",
+                            "type": "string"
+                        },
+                        "sortOrder": {
+                            "description": "The (relative) display position of this report.",
+                            "type": "integer",
+                            "default": 0
+                        }
+                    },
+                    "required": ["fileName", "title"]
+                }
+            }
+        },
+        "required": ["memberGroupId", "title"]
+    }
+}
+

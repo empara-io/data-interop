@@ -1,0 +1,34 @@
+[
+    {
+        "memberGroupId": "4001",
+        "title": "EOY Reports",
+        "description": "End of Year Reports",
+        "containsSensitiveFinancialInfo": true,
+        "reports": [
+            {
+                "fileName": "report-a.pdf",
+                "title": "Report A",
+                "sortOrder": 1
+            },
+            {
+                "fileName": "report-b.pdf",
+                "title": "Report B",
+                "sortOrder": 2
+            }
+        ]
+    },
+    {
+        "memberGroupId": "4001",
+        "title": "Utilization Reports",
+        "reports": [
+            {
+                "fileName": "report-c.pdf",
+                "title": "Report C"
+            },
+            {
+                "fileName": "report-d.pdf",
+                "title": "Report D"
+            }
+        ]
+    }
+]
