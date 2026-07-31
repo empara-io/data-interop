@@ -1,6 +1,6 @@
-# Empara Health AIOS Data Interoperability
+# Opyn Engage Data Interoperability
 
-This repository provides documentation and examples for exchanging data files with the Empara Health AIOS Platform.
+This repository provides documentation and examples for exchanging data files with the Opyn Engage Platform (formerly Empara).
 
 ## Table of Contents
 
@@ -26,8 +26,8 @@ This repository provides documentation and examples for exchanging data files wi
 
 ## Prerequisites
 
-- Access to the Empara Health AIOS Platform requires an established Data Provider relationship. Contact your Empara account management team for details.
+- Access to the Opyn Engage Platform requires an established Data Provider relationship. Contact your Opyn account management team for details.
 
 ## Support
 
-- You can contact support via the [Empara Help Center](https://support.empara.io) or email at [partners@empara.io](mailto:partners@empara.io).
+- You can contact support via the [Opyn Engage Help Center](https://support.empara.io) or email at [partners@opynhealth.com](mailto:partners@opynhealth.com).
