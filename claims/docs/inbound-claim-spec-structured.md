@@ -7,6 +7,7 @@ Transmission from Partner Organization to Empara
 
 | Version                                                                                                                           | Last Updated       |
 |-----------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| 1.2                                                                                                                               | July 28, 2026       |
 | 1.1                                                                                                                               | September 24, 2025 |
 | [1.0](https://github.com/empara-io/data-interop/blob/inbound-claims-structured_v1.0/claims/docs/inbound-claim-spec-structured.md) | August 20, 2025    |
 
@@ -334,6 +335,8 @@ To enhance readability and reduce redundancy, some fields in the schema table ar
 | `header_providerName`              | `STRING`                | `YES`     | The display name of the provider responsible for the claim.                                                                                                                              |
 | `header_providerIdentifier`        | `STRING`                | `NO`      | The business identifier of the provider (e.g, NPI, TIN). **MUST** conform to the specified identifier system.                                                                            |
 | `header_providerIdentifierSystem`  | `STRING`                | `COND`    | **MUST** be provided if `header_providerIdenifier` is present. See ["Identifier Systems"](#identifier-systems)                                                                                   |
+| `header_providerIdentifier_2`      | `STRING`                | `NO`      | A second business identifier for the billing provider (e.g., a TIN, if `header_providerIdentifier` carries an NPI). See ["Provider Identifiers"](#provider-identifiers). **MUST** conform to the specified identifier system.                                                                            |
+| `header_providerIdentifierSystem_2`| `STRING`                | `COND`    | **MUST** be provided if `header_providerIdentifier_2` is present. See ["Identifier Systems"](#identifier-systems)                                                                                   |
 | `header_patientId`                 | `STRING`                | `NO`      | The provider-assigned identifier for the member/beneficiary.                                                                                                                             |
 | `header_payeeType`                 | `ENUM(Payee Type)`      | `NO`      | See: "[Payee Type](#payee-type)"                                                                                                                                                         |
 | `header_patientPaid`               | `MONETARY`              | `NO`      | The amount the patient has already paid to the provider, for the entire claim.                                                                                                           |
@@ -341,6 +344,8 @@ To enhance readability and reduce redundancy, some fields in the schema table ar
 | `item_providerName`                | `STRING`                | `NO`      | The display name of the provider who rendered the service for this line item.                                                                                                            |
 | `item_providerIdentifier`          | `STRING`                | `NO`      | The business identifier of the servicing provider (e.g, NPI, TIN). **MUST** conform to the specified identifier system.                                                                  |
 | `item_providerIdentifierSystem`    | `STRING`                | `COND`    | **MUST** be provided if `item_providerIdentifier` is present. See ["Identifier Systems"](#identifier-systems)                                                                                    |
+| `item_providerIdentifier_2`        | `STRING`                | `NO`      | A second business identifier for the performing provider. See ["Provider Identifiers"](#provider-identifiers). **MUST** conform to the specified identifier system.                                                                  |
+| `item_providerIdentifierSystem_2`  | `STRING`                | `COND`    | **MUST** be provided if `item_providerIdentifier_2` is present. See ["Identifier Systems"](#identifier-systems)                                                                                    |
 | `item_diagnosisCode_1` - `5`       | `STRING`                | `NO`      | A diagnosis code assigned to the line item (e.g., an ICD-10 code). **MUST** conform to the specified code system.                                                                        |
 | `item_diagnosisCodeSystem_1` - `5` | `STRING`                | `COND`    | **MUST** be provided if `item_diagnosisCode_[k]` is given. See: "[Code Systems](#code-systems)"                                                                                            |
 | `item_diagnosisCodeDesc_1` - `5`   | `STRING`                | `COND`    | **MUST** be provided if `item_diagnosisCode_[k]` is given. A brief human-readable description of the diagnosis, which will be displayed to end-users of the Empara application.          |
@@ -371,6 +376,10 @@ To enhance readability and reduce redundancy, some fields in the schema table ar
 | `item_priceFactor`                 | `REAL`                  | `NO`      | The price scaling factor. Describes discounts and surcharges.                                                                                                                            |
 | `item_tax`                         | `MONETARY`              | `NO`      | The total of taxes applicable to the product or service.                                                                                                                                 |
 | `item_totalCost`                   | `MONETARY`              | `YES`     | The total cost amount of the line item.                                                                                                                                                  |
+
+#### Provider Identifiers
+
+Both the billing provider (header-level) and the performing provider (item-level) **MAY** be identified using a second identifier in addition to the primary one — for example, sending both an NPI and a TIN for the same provider. The `_2` fields **SHOULD NOT** duplicate the identifier system already used in the primary identifier (e.g., do not send the same NPI value in both `header_providerIdentifier` and `header_providerIdentifier_2`). Where both identifiers are provided, they **MUST** refer to the same provider entity. Senders not providing a second identifier **MAY** omit these columns entirely, consistent with the general rule for `NO`-requirement fields described above.
 
 ### Claim Responses
 
