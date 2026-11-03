@@ -5,9 +5,10 @@ Transmission from Partner Organization to Empara
 
 ## Revision History
 
-| Version | Last Updated    |
-| --------| ----------------|
-| 1.3     | October 2, 2024 |
+| Version | Last Updated      |
+| --------| ------------------|
+| 1.4     | November 3, 2026  |
+| 1.3     | October 2, 2024   |
 
 **Eligibility Transmission from Partner Organization to Empara**  
 
@@ -60,6 +61,7 @@ Each eligibility file must contain the following fields:
 
 | Column | Type | Required | Min | Max | Range of Values | Description |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `planAdministratorId` | STRING | Conditional | | | | The mutually agreed upon Plan Administrator ID. Only required when sending data for multiple plan administrators in the file. |
 | `memberGroupId` | STRING | Y | | | | Unique identifier for the member group/employer as assigned by the eligibility provider. |
 | `groupPlanId` | STRING | Y | | | | Unique identifier for the benefit plan as assigned by the eligibility provider. |
 | `coverageTier` | STRING | N | | | `subscriberOnly`, `subscriberAndFamily`, `subscriberAndSpouse`, `subscriberAndChildren` | Required only if the plan is divided into coverage tiers, and the implementation calls for the presence of this data. |
@@ -69,8 +71,10 @@ Each eligibility file must contain the following fields:
 | `coverageEndDate` | TIMESTAMP | N | | | | ISO-8601 UTC format (`YYYY-MM-DDTHH:MM:SSZ`). |
 | `medicareIsPrimary` | BOOLEAN | N | | | `true`, `false` | |
 | `cobraIsActive` | BOOLEAN | N | | | `true`, `false` | |
-| `ssn` | STRING | Y | 9 | 9 | | The SSN of the member, without dashes. |
-| `subscriberSsn` | STRING | Y | 9 | 9 | | The SSN of the subscriber, without dashes. |
+| `ssn` | STRING | Conditional | 9 | 9 | | The SSN of the member, without dashes. Required when `personNumber` is not provided. |
+| `subscriberSsn` | STRING | Conditional | 9 | 9 | | The SSN of the subscriber, without dashes. Required when `subscriberPersonNumber` is not provided. |
+| `personNumber` | STRING | Conditional | | | | Immutable identifier for the person associated to this eligibility record. An alternative to `ssn` for providers that use person-number-based eligibility. Required when `ssn` is not provided. Must be unique within the scope of the member group (`memberGroupId`); it is not required to be globally unique. |
+| `subscriberPersonNumber` | STRING | Conditional | | | | Immutable identifier for the person designated as the subscriber on this eligibility record. Required when `subscriberSsn` is not provided. Must be the same for all dependents associated with a subscriber. |
 | `firstName` | STRING | Y | | | | The member's first given name. |
 | `lastName` | STRING | Y | | | | The member's family name. |
 | `middleName` | STRING | N | | | | The member's middle name. |
@@ -91,9 +95,32 @@ Each eligibility file must contain the following fields:
 | `emailAddress` | STRING | N | 3 | 255 | | |
 | `memberGroupStartDate` | TIMESTAMP | N | | | | ISO-8601 UTC format (`YYYY-MM-DDTHH:MM:SSZ`). |
 | `memberGroupEndDate` | TIMESTAMP | N | | | | ISO-8601 UTC format (`YYYY-MM-DDTHH:MM:SSZ`). |
-| `transactionDate` | TIMESTAMP | N | | | | The timestamp the record is sent/transacted. If not provided, it is inferred by the file name or file date. ISO-8601 formatted (`YYYY-MM-DDTHH:MM:SSZ`) if provided. |
+| `transactionDate` | TIMESTAMP | Y | | | | The timestamp the record is sent/transacted. ISO-8601 UTC format (`YYYY-MM-DDTHH:MM:SSZ`). |
 | `externalMemberId` | STRING | N | | | | Unique identifier for the member which was provided by Empara in augmented eligibility implementations. |
 | `externalSubscriberId` | STRING | N | | | | Unique identifier for the member which was provided by Empara in augmented eligibility implementations. |
+
+_\* At least one of `ssn` or `personNumber` must be provided per row. Rows with neither will be quarantined._
+
+### Member Identification
+
+Empara supports two methods of identifying a person on an eligibility record. A provider uses one method consistently for the duration of an implementation; the choice is agreed during implementation.
+
+- **SSN-based.** Populate `ssn` and `subscriberSsn`. Leave `personNumber` and `subscriberPersonNumber` empty.
+- **Person-number-based.** Populate `personNumber` and `subscriberPersonNumber`. Leave `ssn` and `subscriberSsn` empty.
+
+When using person numbers:
+
+- `personNumber` must be **unique within the member group (`memberGroupId`)**. It is not required to be unique across member groups, and Empara does not treat the same value in two different member groups as the same person.
+- `personNumber` must be **immutable** for the life of the person's relationship with the member group. Reassigning a person number to a different individual, or issuing a new person number to the same individual, will be interpreted as a different person.
+- `subscriberPersonNumber` must be identical on every record belonging to the same family, including the subscriber's own record.
+
+`personCode` is not a person identifier. It is a position within a family/contract (`01`, `02`, `03`) and is only unique within a family.
+
+### Multiple Plan Administrators
+
+A provider that sends eligibility on behalf of more than one plan administrator must populate `planAdministratorId` on every record. Each value is agreed with Empara during implementation and must be registered before the first file containing it is sent; records carrying an unrecognized `planAdministratorId` cannot be matched and will be quarantined.
+
+Providers sending data for a single plan administrator may omit the column.
 
 ## Business Rules / Supported Scenarios
 

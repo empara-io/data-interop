@@ -1,0 +1,5 @@
+planAdministratorId	memberGroupId	memberId	subscriberId	ssn	subscriberSsn	personNumber	subscriberPersonNumber	firstName	lastName	birthdate	personCode	effectivePeriodStart	effectivePeriodEnd
+acme	G001	OLD-M-1001	OLD-S-5001			PN-9001	PN-9001	Jane	Smith	1980-03-15	01	2020-01-01T05:00:00Z	2022-12-31T05:00:00Z
+acme	G001	OLD-M-1002	OLD-S-5001				PN-9001	Alex	Smith	2010-07-22	02	2019-06-01T05:00:00Z	2021-05-31T05:00:00Z
+northwind	L001	OLD-M-2001	OLD-S-6001	123456789	123456789			Dan	Jump	1974-01-01		2018-01-01T05:00:00Z	2020-12-31T05:00:00Z
+northwind	L001	OLD-M-2002	OLD-S-6001	223456789	123456789			Sara	Jump	2005-09-10	02	2018-01-01T05:00:00Z	2020-12-31T05:00:00Z
